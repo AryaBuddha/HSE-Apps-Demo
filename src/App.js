@@ -5,7 +5,7 @@ import Tasks from './Tasks'
 function App() {
   return (
     <div className="App">
-      <h1>Task Manager</h1>
+      <h1 style={{textAlign: "center"}}>Task Manager</h1>
       <Tasks />
       
     </div>

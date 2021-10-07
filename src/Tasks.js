@@ -1,20 +1,39 @@
 import React, {useState} from 'react'
+import Task from './Task';
+import Button from '@mui/material/Button';
 
 function Tasks(){
-    const taskData = {Name: "Default Name", Description: "Description", Date: "9/29/21", Status: "Unfinished" }
+    const taskData = {
+        Title: "Default Title",
+        Date: "9/29/21", 
+        Description: "Description", 
+        Completed: false 
+    }
 
     const [tasks, setTasks] = useState([]);
-    
 
+    const addTask = () => {
+        setTasks([...tasks, taskData])
+    }
 
     return (
-        <>
-
-            <div style={{backgroundColor: "blue"  }}>
-                <h1>Hello</h1>
-            </div>
-            
-        </>
+        <div>
+            <Button 
+                variant="contained" 
+                onClick={addTask}
+                style={{margin: "10px auto", display: "block"}}
+            >
+                Add Task
+            </Button>
+            {tasks.map((task) => (
+                <Task 
+                    Title={task.Title}
+                    Date={task.Date}
+                    Description={task.Description}
+                    Completed={task.Completed}
+                />
+            ))}
+        </div>
     )
 }
 
